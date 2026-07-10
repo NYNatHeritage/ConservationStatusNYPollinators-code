@@ -3,6 +3,7 @@
 # Tim Howard, New York Natural Heritage Program
 # tghoward@esf.edu
 # accompanies manuscript
+# White, E. et.al. Conservation status of New York’s pollinators
 ## 
 ##
 
