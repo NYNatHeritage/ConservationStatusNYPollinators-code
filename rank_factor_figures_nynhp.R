@@ -22,13 +22,10 @@ names(rank_dat)
 # just get relevant columns to clean up a bit
 keepCols <- c("SRank",  
              "ScientificName", 
-             "MaxRecords", 
-             "RangeExtent", "AreaOfOccupancy", "NumberOccurrences", 
-             "ThreatImpact", "IntrinsicVulnerability", "LongTermTrend")
+             "RangeExtent", "AreaOfOccupancy", "LongTermTrend")
 allSRanks <- rank_dat[,keepCols]
-names(allSRanks) <- c("srank", "sciname","MaxRecords","RangeExtent",
-                "AOO","NumOccur",
-                "ThreatImpact","IntrinVulner","LongTTrend")
+names(allSRanks) <- c("srank", "sciname","RangeExtent",
+                "AOO","LongTTrend")
 head(allSRanks)
 
 # remove the SNA (==Not Applicable subnational ranks)
@@ -91,10 +88,10 @@ custColors <- c("#00008B", #SH
                 "#e6550d", "#fdae6b", #S4s
                 "grey2", #S5
                 "yellow4") #SU
-xlabels <- c("0 km2","<100 km2",
-"100-250 km2","250-1000 km2",
-"1000-5000 km2","5000-20,000 km2",
-  "20,000-200,000 km2","200,000-2.5M km2","Unknown")
+xlabels <- c("0","<100",
+"100-250","250-1000",
+"1000-5000","5000-20,000",
+  "20,000-200,000","200,000-2.5M","Unknown")
 # change to en-dash
 x_labels_endash <- sub("-","\\\u2013",xlabels)
 
@@ -111,7 +108,7 @@ p <- ggplot(allSRanks, aes(x=RE_mid, y=rowNum, xmin = RE_min,
   scale_x_continuous(breaks = 1:length(factorScaleForRE),labels = x_labels_endash) +
   scale_color_manual(values = custColors,
     labels = allSRankCounts$merge) +  
-  labs(x = "Range extent", y = "Species",
+  labs(x = bquote("Range extent"~(km^2)), y = "Species",
        colour = "S-Rank") + 
   theme_minimal() + 
   theme(text = element_text(size = 14),
@@ -168,7 +165,7 @@ p <- ggplot(allSRanks_aoo, aes(x=AOO_mid, y=rowNum, xmin = AOO_min,
   scale_x_continuous(breaks = 1:length(factorScaleForAOO),labels = x_labels_endash) +
   scale_color_manual(values = custColors, 
         labels = allSRankCounts$merge) +  
-  labs(x = "Area of occupancy", y = "Species",
+  labs(x = bquote("Area of occupancy (4" ~ km^2 * " cells)"), y = "Species",
        colour = "S-Rank") + 
   theme_minimal() + 
   theme(text = element_text(size = 14),
@@ -208,7 +205,7 @@ allSRanks$LTT_max <- allSRanks$LTT_max + 0.35
 allSRanks$LTT_mid <- (allSRanks$LTT_min + allSRanks$LTT_max)/2
 
 xlabels <- c("decline of >90%","decline of 80-90%","decline of 70-80%",
-  "decline of 50-70%","decline of 30-50%","decline of 10-30%","relatively stable (<10% change)",
+  "decline of 50-70%","decline of 30-50%","decline of 10-30%","stable (<10% change)",
   "increase of 10-25%", "increase of >25%", "unknown")
 # change to en-dash
 x_labels_endash <- sub("-","\\\u2013",xlabels)
