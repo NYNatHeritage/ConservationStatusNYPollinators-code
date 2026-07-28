@@ -1,0 +1,40 @@
+﻿Range Extent definitions,,
+Z,0,km2
+A,<100,km2
+B,100-250,km2
+C,250-1000,km2
+D,1000-5000,km2
+E,"5000-20,000",km2
+F,"20,000-200,000",km2
+G,"200,000-2,500,000",km2
+U,unknown,km2
+,,
+Area of Occupancy definitions,,
+Z,0,4km x 4km cells
+A,1,4km x 4km cells
+B,2,4km x 4km cells
+C,3-5,4km x 4km cells
+D,6-25,4km x 4km cells
+E,26-125,4km x 4km cells
+F,126-500,4km x 4km cells
+G,"501-2,500",4km x 4km cells
+H,"2,500-12,500",4km x 4km cells
+I,">12,500",4km x 4km cells
+U,unknown,4km x 4km cells
+,,
+Long term trend definitions,,
+A,decline of >90%,
+B,decline of 80-90%,
+C,decline of 70-80%,
+D,decline of 50-70%,
+E,decline of 30-50%,
+F,decline of 10-30%,
+G,relatively stable (<10% change),
+H,increase of 10-25%,
+I,increase of >25%,
+U,unknown,
+,,
+,,
+,,
+, ,
+, ,
